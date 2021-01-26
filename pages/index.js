@@ -1,11 +1,11 @@
-import Head from 'next/head'
-import styled from 'styled-components'
-import db from '../db.json'
-import Widget from '../src/components/Widget'
-import QuizLogo from '../src/components/QuizLogo'
-import QuizBackground from '../src/components/QuizBackground'
-import Footer from '../src/components/Footer'
-import GitHubCorner from '../src/components/GitHubCorner'
+import React from 'react';
+import styled from 'styled-components';
+import db from '../db.json';
+import Widget from '../src/components/Widget';
+import QuizLogo from '../src/components/QuizLogo';
+import QuizBackground from '../src/components/QuizBackground';
+import Footer from '../src/components/Footer';
+import GitHubCorner from '../src/components/GitHubCorner';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -21,11 +21,6 @@ export const QuizContainer = styled.div`
 export default function Home() {
   return (
     <QuizBackground backgroundImage={db.bg}>
-      <Head>
-        <title>HTML | Alura Quiz</title>
-        <link rel="icon" href="../public/images/icon-20.svg" />
-      </Head>
-
       <QuizContainer>
         <QuizLogo />
         <Widget>
@@ -34,6 +29,9 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
+
+            <Widget.Input placeholder="Diz aí seu nome pra jogar :)" />
+            <Widget.Button>JOGAR</Widget.Button>
           </Widget.Content>
         </Widget>
 
@@ -42,11 +40,12 @@ export default function Home() {
             <h1>Quizes da Galera</h1>
 
             <p>lorem ipsum dolor sit amet...</p>
+
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/omariosouto" />
     </QuizBackground>
-  )
+  );
 }

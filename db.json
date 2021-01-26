@@ -1,7 +1,7 @@
 {
     "bg": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wal17VMDB5PyE1CBN2b1RgHaH1%26pid%3DApi&f=1",
     "title": "Quiz HTML",
-    "description": "Teste os seus conhecimentos sobre HTML e vamos ver quantas páginas você consegue estruturar",
+    "description": "Teste os seus conhecimentos sobre HTML e vamos ver quantas páginas você consegue estruturar.",
     "questions": [
       {
         "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
@@ -33,6 +33,7 @@
       "colors": {
         "primary": "#ff5722",
         "secondary": "#0d47a1",
+        "tertiary": "#171B35",
         "mainBg": "#fff",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",
