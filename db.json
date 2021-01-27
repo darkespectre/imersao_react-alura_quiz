@@ -4,7 +4,7 @@
     "description": "Teste os seus conhecimentos sobre HTML e vamos ver quantas páginas você consegue estruturar.",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+        "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.txDGycMwe-ADbek7qM4XpgHaDh%26pid%3DApi&f=1",
         "title": "Como fazer um seletor por id via CSS?",
         "description": "Essa é pra aquecer",
         "answer": 2,
@@ -34,6 +34,8 @@
         "primary": "#ff5722",
         "secondary": "#0d47a1",
         "tertiary": "#171B35",
+        "quaternary": "rgba(255, 87, 34, 0.5)",
+        "quintenary": "rgba(13, 71, 161, 0.5)",
         "mainBg": "#fff",
         "contrastText": "#FFFFFF",
         "wrong": "#FF5722",

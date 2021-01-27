@@ -21,50 +21,34 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
-  const router = useRouter();
-  const [name, setName] = React.useState('');
-
   return (
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
         <Widget>
           <Widget.Header>
-            <h1>{db.title}</h1>
+            <h1>{db.questions[0].title}</h1>
           </Widget.Header>
+          <Widget.Img>
+            <img src={db.questions[0].image} alt="1 answer" />
+          </Widget.Img>
           <Widget.Content>
-            <p>{db.description}</p>
+            <h2>{db.questions[0].title}</h2>
 
-            <form onSubmit={(event) => {
-              event.preventDefault();
-              router.push(`/quiz?name=${name}`);
-            }}
-            >
-              <Widget.Input
-                type="text"
-                placeholder="Diz aí seu nome pra jogar :)"
-                onChange={(event) => {
-                  setName(event.target.value);
-                }}
-              />
-              <Widget.Button disabled={name.length === 0}>
-                JOGAR
-              </Widget.Button>
+            <p>{db.questions[0].description}</p>
+
+            <form>
+              <Widget.InputContainer alternative={db.questions[0].alternatives[0]} />
+              <Widget.InputContainer alternative={db.questions[0].alternatives[1]} />
+              <Widget.InputContainer alternative={db.questions[0].alternatives[2]} />
+              <Widget.InputContainer alternative={db.questions[0].alternatives[3]} />
+              <Widget.Button>JOGAR</Widget.Button>
             </form>
-          </Widget.Content>
-        </Widget>
-
-        <Widget>
-          <Widget.Content>
-            <h1>Quizes da Galera</h1>
-
-            <p>lorem ipsum dolor sit amet...</p>
-
           </Widget.Content>
         </Widget>
         <Footer />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/darkespectre/imersao_react-alura_quiz" />
+      <GitHubCorner projectUrl="https://github.com/omariosouto" />
     </QuizBackground>
   );
 }
