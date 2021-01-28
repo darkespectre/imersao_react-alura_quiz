@@ -61,18 +61,22 @@ Widget.Content = styled.div`
 
 Widget.Input = styled.input`
   width: 100%;
-  height: 3.5rem;
+  min-height: 3.5rem;
+  height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-radius: 1rem;
+  background-color: ${({ theme }) => theme.colors.mainBg};
   text-align: center;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.tertiary};
   &[type=radio] {
     appearance: none;
     width: 100%;
-    height: 3.5rem;
     color: ${({ theme }) => theme.colors.tertiary};
     font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   &[type=radio]:checked {
     background-color: ${({ theme }) => theme.colors.quintenary};
@@ -115,30 +119,33 @@ Widget.Img = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-Widget.InputContainer = function InputContainer({ alternative }) {
+Widget.InputContainer = function InputContainer({ alternative, alternativeId }) {
   return (
     <div style={{
       position: 'relative',
+      minHeight: '3.5rem',
+      padding: '.5rem 1rem',
+      marginBottom: '1rem',
     }}
     >
+
       <label
-        htmlFor="option"
+        htmlFor={alternativeId}
         style={{
-          position: 'absolute',
-          top: '30%',
-          left: '8%',
           fontSize: '1.5rem',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         {alternative}
       </label>
+
       <Widget.Input
         type="radio"
         name="option"
-        style={{
-          marginTop: '.5rem',
-        }}
+        id={alternativeId}
       />
+
     </div>
   );
 };
