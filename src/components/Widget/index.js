@@ -172,10 +172,15 @@ Widget.Results = function ResultWidget({ results }) {
         <h2>Resultados</h2>
       </Widget.Header>
 
-      <Widget.Content>
+      <Widget.Content style={{
+        fontSize: '1.5rem',
+        fontWeight: '600',
+      }}
+      >
         <p>Mandou bem, </p>
         <h3 style={{
           fontSize: '1.5rem',
+          marginBottom: '1rem',
         }}
         >
           Você acertou
@@ -194,10 +199,10 @@ Widget.Results = function ResultWidget({ results }) {
         <ul>
           {results.map((result, index) => (
             <li key={`result__${result}`}>
-              #
               {index + 1}
+              º
               {' '}
-              Resultado:
+              -
               {' '}
               {result === true
                 ? 'Acertou'
