@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import React from 'react';
 
@@ -73,6 +74,7 @@ Widget.Input = styled.input`
     appearance: none;
     width: 100%;
     color: ${({ theme }) => theme.colors.tertiary};
+    cursor: pointer;
     font-weight: 500;
     position: absolute;
     top: 0;
@@ -118,8 +120,13 @@ Widget.Img = styled.div`
   }
 `;
 
-// eslint-disable-next-line react/prop-types
-Widget.InputContainer = function InputContainer({ alternative, alternativeId }) {
+Widget.InputContainer = function InputContainer({
+  alternative,
+  alternativeId,
+  onChange,
+  dataSelected,
+  dataStatus,
+}) {
   return (
     <div style={{
       position: 'relative',
@@ -133,8 +140,10 @@ Widget.InputContainer = function InputContainer({ alternative, alternativeId }) 
         htmlFor={alternativeId}
         style={{
           fontSize: '1.5rem',
+          fontWeight: '600',
           position: 'relative',
           zIndex: 2,
+          cursor: 'pointer',
         }}
       >
         {alternative}
@@ -144,9 +153,60 @@ Widget.InputContainer = function InputContainer({ alternative, alternativeId }) 
         type="radio"
         name="option"
         id={alternativeId}
+        onChange={onChange}
+        data-selected={dataSelected}
+        data-status={dataStatus}
       />
 
     </div>
+  );
+};
+
+Widget.Results = function ResultWidget({ results }) {
+  return (
+    <Widget style={{
+      fontSize: '1.5rem',
+    }}
+    >
+      <Widget.Header>
+        <h2>Resultados</h2>
+      </Widget.Header>
+
+      <Widget.Content>
+        <p>Mandou bem, </p>
+        <h3 style={{
+          fontSize: '1.5rem',
+        }}
+        >
+          Você acertou
+          {' '}
+          {/* {results.reduce((somatoriaAtual, resultAtual) => {
+            const isAcerto = resultAtual === true;
+            if (isAcerto) {
+              return somatoriaAtual + 1;
+            }
+            return somatoriaAtual;
+          }, 0)} */}
+          {results.filter((x) => x).length}
+          {' '}
+          perguntas
+        </h3>
+        <ul>
+          {results.map((result, index) => (
+            <li key={`result__${result}`}>
+              #
+              {index + 1}
+              {' '}
+              Resultado:
+              {' '}
+              {result === true
+                ? 'Acertou'
+                : 'Errou'}
+            </li>
+          ))}
+        </ul>
+      </Widget.Content>
+    </Widget>
   );
 };
 
