@@ -17,7 +17,7 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <QuizLogo />
-        <Widget>
+        <Widget style={{ animation: 'slide-left 1s linear forwards' }}>
           <Widget.Header>
             <h1>{db.title}</h1>
           </Widget.Header>
@@ -43,15 +43,52 @@ export default function Home() {
           </Widget.Content>
         </Widget>
 
-        <Widget>
+        <Widget style={{ animation: 'slide-right 1s linear forwards' }}>
           <Widget.Content>
             <h1>Quizes da Galera</h1>
 
-            <p>lorem ipsum dolor sit amet...</p>
+            <ul style={{
+              marginTop: '2rem',
+            }}
+            >
+              {db.external.map((linkExterno) => {
+                const [projectName, githubUser] = linkExterno
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
 
+                return (
+                  <li
+                    style={{
+                      fontSize: '1.3rem',
+                      fontWeight: '700',
+                      marginBottom: '.5rem',
+                    }}
+                    key={linkExterno}
+                  >
+                    <Widget.Input
+                      as="a"
+                      style={{
+                        color: '#171B35',
+                        textDecoration: 'none',
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'left',
+                        padding: '0 1rem',
+                      }}
+                      href={linkExterno}
+                    >
+                      {`${githubUser}/${projectName}`}
+                    </Widget.Input>
+                  </li>
+                );
+              })}
+            </ul>
           </Widget.Content>
         </Widget>
-        <Footer />
+        <Footer style={{ animation: 'slide-left 1s linear forwards' }} />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/darkespectre/imersao_react-alura_quiz" />
     </QuizBackground>

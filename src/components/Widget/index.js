@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import React from 'react';
+import ArrowLink from '../ArrowLink';
 
 const Widget = styled.div`
   margin-top: 24px;
@@ -70,6 +71,7 @@ Widget.Input = styled.input`
   text-align: center;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.tertiary};
+  transition: .2s;
   &[type=radio] {
     appearance: none;
     width: 100%;
@@ -82,6 +84,9 @@ Widget.Input = styled.input`
   }
   &[type=radio]:checked {
     background-color: ${({ theme }) => theme.colors.quintenary};
+  }
+  &:hover{
+    background-color: ${({theme}) => theme.colors.quintenary}
   }
 `;
 
@@ -162,13 +167,16 @@ Widget.InputContainer = function InputContainer({
   );
 };
 
-Widget.Results = function ResultWidget({ results }) {
+Widget.Results = function ResultWidget({ results, name }) {
   return (
     <Widget style={{
       fontSize: '1.5rem',
     }}
     >
       <Widget.Header>
+        <div style={{ marginRight: '2rem' }}>
+          <ArrowLink />
+        </div>
         <h2>Resultados</h2>
       </Widget.Header>
 
@@ -177,7 +185,7 @@ Widget.Results = function ResultWidget({ results }) {
         fontWeight: '600',
       }}
       >
-        <p>Mandou bem, </p>
+        <p>{`Mandou bem, ${name}!`}</p>
         <h3 style={{
           fontSize: '1.5rem',
           marginBottom: '1rem',

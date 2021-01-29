@@ -10,19 +10,27 @@ import Footer from '../src/components/Footer';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizContainer from '../src/components/QuizContainer';
 import AlternativesForm from '../src/components/AlternativesForm';
+import LoadingWidget from '../src/components/LoadingWidget';
+import ArrowLink from '../src/components/ArrowLink';
 
-function LoadingWidget() {
+function Loading() {
   return (
     <Widget style={{
       fontSize: '1.4rem',
+      fontWeight: '600',
     }}
     >
       <Widget.Header>
         Carregando...
       </Widget.Header>
 
-      <Widget.Content>
-        [Desafio do Loading]
+      <Widget.Content style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      >
+        <LoadingWidget />
       </Widget.Content>
     </Widget>
   );
@@ -45,6 +53,9 @@ function QuestionWidget({
     <Widget>
 
       <Widget.Header>
+        <div style={{ marginRight: '2rem' }}>
+          <ArrowLink />
+        </div>
         <h2>{`Pergunta ${questionIndex + 1} de ${totalQuestions}`}</h2>
       </Widget.Header>
 
@@ -100,7 +111,7 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizPage({ name }) {
   const [screenState, setScreenState] = React.useState(screenStates.LOADING);
   const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -118,7 +129,7 @@ export default function QuizPage() {
   React.useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
-    }, 1 * 1000);
+    }, 1000);
   }, []);
 
   function handleSubmitQuiz() {
@@ -131,11 +142,11 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
-      <QuizContainer>
+    <QuizBackground backgroundImage={db.bg} style={{ marginBottom: '3rem' }}>
+      <QuizContainer style={{ animation: 'slide-down 1s linear forwards' }}>
         <QuizLogo />
 
-        {screenState === screenStates.LOADING && <LoadingWidget />}
+        {screenState === screenStates.LOADING && <Loading />}
 
         {screenState === screenStates.QUIZ && (
           <QuestionWidget
@@ -147,11 +158,19 @@ export default function QuizPage() {
           />
         )}
 
-        {screenState === screenStates.RESULT && <Widget.Results results={results} />}
+        {screenState === screenStates.RESULT && <Widget.Results results={results} name={name} />}
 
         <Footer />
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/omariosouto" />
     </QuizBackground>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { name } = context.query;
+
+  return {
+    props: { name },
+  };
 }

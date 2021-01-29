@@ -1,33 +1,70 @@
 {
     "bg": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.wal17VMDB5PyE1CBN2b1RgHaH1%26pid%3DApi&f=1",
     "title": "Quiz HTML",
-    "description": "Teste os seus conhecimentos sobre HTML e vamos ver quantas páginas você consegue estruturar.",
+    "description": "Teste os seus conhecimentos sobre HTML e vamos ver se você conhece dele tanto quanto pensa.",
     "questions": [
       {
-        "image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.txDGycMwe-ADbek7qM4XpgHaDh%26pid%3DApi&f=1",
-        "title": "Como fazer um seletor por id via CSS?",
+        "image": "https://media.giphy.com/media/c6SYZfAkR6wpEIc2La/giphy.gif",
+        "title": "Para que serve o atributo global 'dir'?",
         "description": "Essa é pra aquecer",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Especica um diretório para um arquivo no projeto",
+          "Direciona o usuário a uma parte especifica da página",
+          "Especifica se o texto digitado vai da esquerda pra direita ou vice-versa",
+          "Peraí, esse atributo não existe"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
+        "image": "https://media.giphy.com/media/Nm8ZPAGOwZUQM/giphy.gif",
+        "title": "Quais dos atributos abaixo permite o pré-carregamento de conteúdo?",
+        "description": "Achava que só o Nextjs tem seus truques?",
+        "answer": 3,
+        "alternatives": [
+           "rel='preload'",
+           "rel='prefetch'",
+           "rel='prerender'",
+           "Todas as alternativas"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/13HBDT4QSTpveU/giphy.gif",
+        "title": "Que mudança a tag <kbd> faz no documento HTML?",
+        "description": "Ainda não chegou nessa parte?",
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+           "Não faz nada",
+           "Permite executar um comando através do teclado",
+           "Nenhuma das anteriores"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/3o7qDLdHXZZR2XBtmM/giphy.gif",
+        "title": "O que a tag <iframe> te permite fazer?",
+        "description": "Ainda não chegou nessa parte?",
+        "answer": 3,
+        "alternatives": [
+           "Não faz nada",
+           "Permite uma bela obra de arte para deixar sua página mais bonita",
+           "É um portal para outra dimensão",
+           "Nenhuma das anteriores"
+        ]
+      },
+      {
+        "image": "https://media.giphy.com/media/BZhvKu7MT0n2voRhtf/giphy.gif",
+        "title": "Os plug-ins HTML ainda podem ser usados para...",
+        "description": "Vai conseguir encaixar essa?",
+        "answer": 1,
+        "alternatives": [
+           "Executar controles Microsoft ActiveX, Exibir mapas, verificar um ID de um banco",
+           "Exibir mapas, verificar a existência de vírus, verificar um ID de um banco",
+           "Verificar um ID de um banco, exibir filmes em Flash, verificar a existência de vírus",
+           "Tem plug-in no HTML?"
         ]
       }
     ],
     "external": [
-      ""
+      "https://quiz-livros.luizaacampos.vercel.app/"
     ],
     "theme": {
       "colors": {
